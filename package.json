@@ -1,38 +1,55 @@
 {
-  "name": "lottery-desktop",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "name": "lottery-desktop",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {},
+    "scripts": {
+        "start": "react-scripts start",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "react-start": "set BROWSER=none && npm run start",
+        "react-build": "react-scripts build",
+        "electron-start": "set ELECTRON_START_URL=http://localhost:3000 &&  electron .",
+        "electron-build": "npm run build && electron-builder build -c.extraMetadata.main=build/Main.js"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "main": "public/Main.js",
+    "homepage": "./",
+    "build": {
+        "productName": "Lottery Desktop",
+        "appId": "com.electron.lottery",
+        "asar": true,
+        "files": [
+            "build/**/*"
+        ],
+        "target": "nsis"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@testing-library/jest-dom": "^5.14.1",
+        "@testing-library/react": "^11.2.7",
+        "@testing-library/user-event": "^12.8.3",
+        "electron": "^14.0.1",
+        "electron-builder": "^22.11.7",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-scripts": "4.0.3",
+        "web-vitals": "^1.1.2"
+    }
 }
