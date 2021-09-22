@@ -7,6 +7,7 @@
 
     --titlebar-background: #fff;
     --titlebar-text: #000;
+    --titlebar-blur: #999;
     --titlebar-button-hover: #e5e5e5;
     --titlebar-button-close: #da0f20;
     --titlebar-button-close-hover: var(--titlebar-background);
@@ -33,6 +34,7 @@
 
     --titlebar-background: #121212;
     --titlebar-text: white;
+    --titlebar-text-blur: #999;
     --titlebar-button-hover: #464646;
     --titlebar-button-close: #da0f20;
     --titlebar-button-close-hover: var(--titlebar-button-icon);

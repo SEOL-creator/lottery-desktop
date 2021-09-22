@@ -8,7 +8,7 @@ contextBridge.exposeInMainWorld("api", {
         }
     },
     receive: (channel, func) => {
-        const validChannels = ["isWindowMaximized"];
+        const validChannels = ["isWindowMaximized", "isWindowBlur"];
         if (validChannels.includes(channel)) {
             ipcRenderer.on(channel, (event, ...args) => func(...args));
         }

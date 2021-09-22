@@ -22,6 +22,12 @@ function createWindow() {
     mainWindow.on("unmaximize", () => {
         mainWindow.webContents.send("isWindowMaximized", mainWindow.isMaximized());
     });
+    mainWindow.on("blur", () => {
+        mainWindow.webContents.send("isWindowBlur", true);
+    });
+    mainWindow.on("focus", () => {
+        mainWindow.webContents.send("isWindowBlur", false);
+    });
 
     process.env.ELECTRON_START_URL ? mainWindow.loadURL(process.env.ELECTRON_START_URL) : mainWindow.loadFile(path.join(__dirname, "/index.html"));
 }
