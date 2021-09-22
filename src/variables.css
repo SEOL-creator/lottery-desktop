@@ -1,0 +1,48 @@
+/* VARIABLE DEFINITIONS */
+:root {
+    --background-color: #fafafa;
+    --background-higher: #fff;
+
+    --separator-light: #ededed;
+
+    --titlebar-background: #fff;
+    --titlebar-text: #000;
+    --titlebar-button-hover: #e5e5e5;
+    --titlebar-button-close: #da0f20;
+    --titlebar-button-close-hover: var(--titlebar-background);
+    --titlebar-button-icon: #333;
+
+    --theme-color-main: #ffa500;
+    --theme-color-lighter: #ffb600;
+    --theme-color-darker: #f29c00;
+
+    --menu-background: #fff;
+    --menu-background-hover: #fafafa;
+    --menu-border: #767676;
+
+    --text-strong: black;
+    --text-normal: #222;
+    --text-weak: #424242;
+}
+
+:root[data-theme="dark"] {
+    --background-color: #121212;
+    --background-higher: #1f1f1f;
+
+    --separator-light: #313131;
+
+    --titlebar-background: #121212;
+    --titlebar-text: white;
+    --titlebar-button-hover: #464646;
+    --titlebar-button-close: #da0f20;
+    --titlebar-button-close-hover: var(--titlebar-button-icon);
+    --titlebar-button-icon: #e8e8e8;
+
+    --menu-background: #292a2d;
+    --menu-background-hover: #3f4042;
+    --menu-border: #454545;
+
+    --text-strong: white;
+    --text-normal: #f4f4f4;
+    --text-weak: #bdbdbd;
+}
