@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
 
+function getStorageTheme() {
+    const storageData = localStorage.getItem("theme");
+    if (!storageData) {
+        localStorage.setItem("theme", "light");
+    } else {
+        return storageData;
+    }
+}
+
 function getUserTheme() {
     return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
-function changeHTMLTheme(theme) {
-    const html = document.querySelector("html");
-    html.dataset.theme = theme;
-}
-
 export default function useTheme() {
-    const [currentTheme, setCurrentTheme] = useState("light");
+    const [currentTheme, setCurrentTheme] = useState(getStorageTheme());
     const [userTheme, setUserTheme] = useState(getUserTheme());
 
     useEffect(() => {
@@ -20,19 +24,34 @@ export default function useTheme() {
         };
     }, []);
 
+    function changeHTMLTheme(theme) {
+        const html = document.querySelector("html");
+        if (theme === "user") {
+            html.dataset.theme = userTheme;
+        } else {
+            html.dataset.theme = theme;
+        }
+    }
+    function changeStorageTheme(theme) {
+        localStorage.setItem("theme", theme);
+    }
+    function changeTheme(theme) {
+        changeHTMLTheme(theme);
+        changeStorageTheme(theme);
+    }
+
     useEffect(() => {
         switch (currentTheme) {
             case "user":
-                changeHTMLTheme(userTheme);
+                changeTheme("user");
                 break;
             case "dark":
-                changeHTMLTheme("dark");
+                changeTheme("dark");
                 break;
             case "light":
-                changeHTMLTheme("light");
+                changeTheme("light");
                 break;
             default:
-                changeHTMLTheme("light");
                 setCurrentTheme("light");
         }
     }, [currentTheme, userTheme]);
