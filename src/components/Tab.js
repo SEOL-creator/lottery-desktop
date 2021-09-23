@@ -1,32 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
-import { useState, createContext, useContext, memo } from "react";
+import { useState, createContext, useContext } from "react";
 
-const TabWrapper = styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-`;
-
-const TabHeaderWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-`;
-
-const TabHeaderItemWrapper = styled.button`
-    background-color: var(--background-higher);
-    border: none;
-    cursor: pointer;
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--text-normal);
-    width: 100%;
-    height: 3.2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
+import "./Tab.css";
 
 const TabBar = styled.div`
     height: 0.2rem;
@@ -47,25 +23,25 @@ export function Tab(props) {
 
     return (
         <TabContext.Provider value={context}>
-            <TabWrapper>{props.children}</TabWrapper>
+            <div className="tab">{props.children}</div>
         </TabContext.Provider>
     );
 }
 
-export const TabHeader = memo((props) => {
+export const TabHeader = (props) => {
     const { tabIndex } = useTabContext();
     const tabBarWidth = Math.round(10000 / props.children.length) / 100;
     return (
         <>
-            <TabHeaderWrapper>{props.children}</TabHeaderWrapper>
-            <div style={{ backgroundColor: "var(--background-higher)", width: "100%" }}>
-                <TabBar style={{ width: tabBarWidth + "%", marginLeft: tabIndex * tabBarWidth + "%" }} />
+            <div className="tab__header">{props.children}</div>
+            <div className="tab__bar">
+                <div style={{ width: tabBarWidth + "%", marginLeft: tabIndex * tabBarWidth + "%" }}></div>
             </div>
         </>
     );
-});
+};
 
-export const TabHeaderItem = memo((props) => {
+export const TabHeaderItem = (props) => {
     const { setTabIndex } = useTabContext();
 
     let onClickHandler = () => setTabIndex(props.index);
@@ -75,12 +51,17 @@ export const TabHeaderItem = memo((props) => {
             setTabIndex(props.index);
         };
     }
+
+    let classNames = [];
+    classNames.push("header__item");
+    classNames.push(props.className);
+    classNames = classNames.join(" ");
     return (
-        <TabHeaderItemWrapper onClick={onClickHandler} className={props.className}>
+        <div className={classNames} onClick={onClickHandler}>
             {props.children}
-        </TabHeaderItemWrapper>
+        </div>
     );
-});
+};
 
 export function TabContent(props) {
     const { tabIndex } = useTabContext();
