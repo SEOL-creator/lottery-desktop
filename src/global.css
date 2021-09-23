@@ -1,4 +1,4 @@
-.selector {
+select {
     font-family: inherit;
     background: none;
     background-color: var(--menu-background);
@@ -6,14 +6,9 @@
     border-color: var(--menu-border);
 }
 
-.selector > option {
+select > option {
     background: none;
     background-color: var(--menu-background);
     color: var(--text-strong);
     appearance: none;
-}
-
-.selector > option:target {
-    background: none;
-    background-color: var(--menu-background-hover);
 }

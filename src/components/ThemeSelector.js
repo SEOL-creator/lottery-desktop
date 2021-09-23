@@ -1,12 +1,11 @@
 import useTheme from "../hooks/useTheme";
-import styles from "./ThemeSelector.module.css";
 
-export default function ThemeSelector() {
+export default function ThemeSelector(props) {
     const [theme, setTheme] = useTheme();
 
     return (
         <select
-            className={styles.selector}
+            className={props.className}
             value={theme}
             onInput={(e) => {
                 setTheme(e.target.value);
