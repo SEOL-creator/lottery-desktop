@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 
 import styles from "./Titlebar.module.css";
-import icon from "../assets/icons/icon_o_1024.png";
 
 export default function TitleBar({ title }) {
     const [isWindowMaximized, setIsWindowMaximized] = useState(false);
@@ -40,9 +39,7 @@ export default function TitleBar({ title }) {
 
     return (
         <div className={`${styles.titlebar} ${isWindowBlur ? styles.appBlurTitlebar : ""}`}>
-            <div className={styles.iconContainer}>
-                <img src={icon} alt="" />
-            </div>
+            <div className={styles.iconContainer}></div>
             <div className={styles.titleContainer}>{title}</div>
             <div className={styles.buttonContainer}>
                 <button

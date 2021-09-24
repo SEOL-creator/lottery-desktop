@@ -34,9 +34,6 @@
         "nsis": {
             "language": "1042",
             "shortcutName": "대포 뽑기"
-        },
-        "win": {
-            "icon": "build/icon.png"
         }
     },
     "browserslist": {
