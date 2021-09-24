@@ -1,0 +1,34 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.infoText {
+    font-size: 14px;
+    margin-top: 10px;
+    color: var(--text-weak);
+}
+
+.form {
+    width: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.question {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}

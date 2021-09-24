@@ -23,6 +23,14 @@
 
 .iconContainer {
     width: 13.5rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.iconContainer > img {
+    padding-left: 8px;
+    width: 16px;
+    height: 16px;
 }
 .titleContainer {
     font-size: 1.2rem;
@@ -74,7 +82,7 @@
     background-color: var(--titlebar-background);
     transition: background-color 0.15s;
 }
-.restoreWindowIcon > div:first-child {
+.restoreWindowIcon > div:first-of-type {
     left: 0;
     bottom: 0;
     z-index: 2;

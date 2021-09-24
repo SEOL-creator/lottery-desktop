@@ -1,0 +1,35 @@
+@keyframes ballShoot {
+    0% {
+        color: transparent;
+        top: 300px;
+        transform: scale(0.2);
+    }
+    60% {
+        color: transparent;
+        top: 0;
+        transform: scale(0.05);
+    }
+    100% {
+        color: inherit;
+        top: 120px;
+    }
+}
+
+.ball {
+    position: absolute;
+    background-color: yellowgreen;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    border-radius: 50%;
+    animation-name: ballShoot;
+    animation-duration: 0.8s;
+    animation-timing-function: cubic-bezier(0, 0.615, 0.565, 1);
+    animation-fill-mode: both;
+    animation-direction: normal;
+
+    width: 200px;
+    height: 200px;
+    font-size: 64px;
+    font-weight: 700;
+}

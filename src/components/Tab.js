@@ -1,14 +1,6 @@
-/** @jsxImportSource @emotion/react */
-import styled from "@emotion/styled";
 import { useState, createContext, useContext } from "react";
 
 import "./Tab.css";
-
-const TabBar = styled.div`
-    height: 0.2rem;
-    background-color: orange;
-    transition: margin-left 0.2s ease-in-out;
-`;
 
 const TabContext = createContext();
 const useTabContext = () => useContext(TabContext);

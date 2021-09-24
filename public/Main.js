@@ -1,5 +1,6 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
+const { app, BrowserWindow, ipcMain, dialog } = require("electron");
 const path = require("path");
+const fs = require("fs");
 
 let mainWindow = null;
 function createWindow() {
@@ -9,7 +10,8 @@ function createWindow() {
         minWidth: 550,
         minHeight: 500,
         frame: false,
-        title: "뽑기기계",
+        title: "대포 뽑기",
+        icon: path.join(__dirname, "/icon.png"),
         webPreferences: {
             preload: path.join(__dirname, "/preload.js"),
         },
@@ -34,11 +36,6 @@ function createWindow() {
 
 app.on("ready", createWindow);
 
-ipcMain.on("isWindowMaximized", (evt) => {
-    if (mainWindow) {
-        evt.reply("isWindowMaximized", mainWindow.isMaximized());
-    }
-});
 ipcMain.on("minimizeWindow", () => {
     mainWindow.minimize();
 });
@@ -51,4 +48,26 @@ ipcMain.on("closeWindow", () => {
 
 ipcMain.on("toggleAlwaysOnTop", (e, payload) => {
     mainWindow.setAlwaysOnTop(payload);
+});
+
+ipcMain.on("saveAsFile", (e, text) => {
+    dialog
+        .showSaveDialog(mainWindow, {
+            defaultPath: "뽑기 결과.txt",
+            filters: [
+                { name: "텍스트 문서", extensions: ["txt"] },
+                { name: "모든 파일", extensions: ["*"] },
+            ],
+        })
+        .then((data) => {
+            if (data.canceled === false) {
+                const mystream = fs.createWriteStream(data.filePath);
+                mystream.on("error", (e) => console.log(e));
+                mystream.write(text);
+                mystream.end();
+            }
+        })
+        .catch((e) => {
+            console.log(e);
+        });
 });

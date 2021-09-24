@@ -1,6 +1,3 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
-import styled from "@emotion/styled";
 import { useState } from "react";
 
 import styles from "./App.module.css";
@@ -13,15 +10,15 @@ import SettingBar from "../components/SettingBar";
 import { ThemeContextProvider } from "../contexts/themeContext";
 
 function App() {
-    const [title, setTitle] = useState("뽑기기계");
-    const [lotteryState, setLotteryState] = useState({ onLottery: false, lotteryArray: [] });
+    const [title, setTitle] = useState("대포 뽑기");
+    const [lotteryState, setLotteryState] = useState({ onLottery: false, lotteryArray: [], lotteryTitle: "", lotterySetting: "", lotteryDate: "" });
     return (
         <>
             <ThemeContextProvider>
                 <TitleBar title={title} />
                 <div className={styles.content}>
-                    {!lotteryState.onLottery && <LotteryMain />}
-                    {lotteryState.onLottery && <LotteryResult />}
+                    {!lotteryState.onLottery && <LotteryMain lotteryState={lotteryState} setLotteryState={setLotteryState} />}
+                    {lotteryState.onLottery && <LotteryResult lotteryState={lotteryState} setLotteryState={setLotteryState} />}
                 </div>
                 <SettingBar />
             </ThemeContextProvider>

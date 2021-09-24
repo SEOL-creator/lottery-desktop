@@ -4,8 +4,9 @@ const ThemeContext = createContext();
 
 function getStorageTheme() {
     const storageData = localStorage.getItem("theme");
-    if (!storageData) {
+    if (storageData == undefined) {
         localStorage.setItem("theme", "light");
+        return "light";
     } else {
         return storageData;
     }

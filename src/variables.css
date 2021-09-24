@@ -16,6 +16,7 @@
     --theme-color-main: #ffa500;
     --theme-color-lighter: #ffb600;
     --theme-color-darker: #f29c00;
+    --theme-color-deepdark: #df852d;
 
     --menu-background: #fff;
     --menu-background-hover: #fafafa;
@@ -27,8 +28,8 @@
 }
 
 :root[data-theme="dark"] {
-    --background-color: #121212;
-    --background-higher: #1f1f1f;
+    --background-color: #1f1f1f;
+    --background-higher: #121212;
 
     --separator-light: #313131;
 

@@ -12,3 +12,22 @@ select > option {
     color: var(--text-strong);
     appearance: none;
 }
+
+input[type="number"] {
+    font-size: 18px;
+    width: 60px;
+    height: 28px;
+    text-align: center;
+    border: 1px solid var(--menu-border);
+    border-radius: 8px;
+    transition: border-color 0.15s;
+}
+input[type="number"]:focus {
+    border-color: var(--theme-color-main);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

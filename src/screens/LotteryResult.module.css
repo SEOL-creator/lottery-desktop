@@ -1,0 +1,81 @@
+.lotteryResult {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-image: url("../assets/images/LotteryBackground_1.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lotteryInfoContainer {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 12px;
+    line-height: 1.2;
+}
+.lotteryInfoContainer > div:first-of-type {
+    margin-top: 6px;
+}
+
+.cannonContainer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+.cannonImage {
+    display: block;
+    margin: auto;
+    width: 120px;
+}
+.buttonContainer {
+    width: 100%;
+    position: absolute;
+    bottom: 16px;
+}
+.button {
+    display: block;
+    margin: auto;
+    background-color: #c09900;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+}
+.button:hover {
+    background-color: #ffeb9a;
+}
+
+.textButton {
+    position: absolute;
+    bottom: 0;
+
+    background-color: transparent;
+    padding: 6px 14px;
+    line-height: 1.2;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.textButton:hover {
+    color: var(--theme-color-deepdark);
+}
+
+.textButton--left {
+    right: 0;
+}
+
+.textButton--right {
+    left: 0;
+}

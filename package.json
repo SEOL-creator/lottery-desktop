@@ -1,6 +1,6 @@
 {
     "name": "lottery-desktop",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "private": true,
     "dependencies": {},
     "scripts": {
@@ -10,7 +10,7 @@
         "react-start": "set BROWSER=none && npm run start",
         "react-build": "react-scripts build",
         "electron-start": "set ELECTRON_START_URL=http://localhost:3000 && electron --trace-warnings .",
-        "electron-build": "npm run build && electron-builder build -c.extraMetadata.main=build/Main.js"
+        "electron-build": "npm run react-build && electron-builder build -c.extraMetadata.main=build/Main.js"
     },
     "eslintConfig": {
         "extends": [
@@ -22,12 +22,22 @@
     "homepage": "./",
     "build": {
         "productName": "Lottery Desktop",
-        "appId": "com.electron.lottery",
+        "appId": "com.electron.lottery-desktop",
         "asar": true,
         "files": [
             "build/**/*"
         ],
-        "target": "nsis"
+        "directories": {
+            "buildResources": "build/"
+        },
+        "target": "nsis",
+        "nsis": {
+            "language": "1042",
+            "shortcutName": "대포 뽑기"
+        },
+        "win": {
+            "icon": "build/icon.png"
+        }
     },
     "browserslist": {
         "production": [
@@ -49,7 +59,6 @@
         "@testing-library/user-event": "^12.8.3",
         "electron": "^13.3.0",
         "electron-builder": "^22.11.7",
-        "polished": "^4.1.3",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-scripts": "4.0.3",
